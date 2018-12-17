@@ -18,7 +18,7 @@ jobs:
 
     steps:
       - checkout
-      - setup_remote_docker
+      # - setup_remote_docker
 
       # Download and cache dependencies
       - restore_cache:
@@ -38,14 +38,14 @@ jobs:
       - run: yarn ng build --prod
       - run: yarn ng test --watch=false
 
-      - run :
-          command: |
-          docker build -t naveensprofile.azurecr.io/naveenr:1.0 .
+      # - run :
+      #     command: |
+      #     docker build -t naveensprofile.azurecr.io/naveenr:1.0 .
 
-      - run :
-          command: |
-         # docker login --username NaveensProfile --password LkJkB9+MIEY72Z65N8nn3mY6m0wu20Ia naveensprofile.azurecr.io
-          docker login --username $DOCKER_USER --password $DOCKER_PASS naveensprofile.azurecr.io
-       - run :
-          command: |
-          docker push naveensprofile.azurecr.io/naveenr:1.0
+      # - run :
+      #     command: |
+      #    # docker login --username NaveensProfile --password LkJkB9+MIEY72Z65N8nn3mY6m0wu20Ia naveensprofile.azurecr.io
+      #     docker login --username $DOCKER_USER --password $DOCKER_PASS naveensprofile.azurecr.io
+      #  - run :
+      #     command: |
+      #     docker push naveensprofile.azurecr.io/naveenr:1.0
