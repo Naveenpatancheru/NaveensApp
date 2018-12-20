@@ -7,4 +7,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'NaveensApp';
+  counter: number=22;
+  
 }
