@@ -102,11 +102,11 @@
            </ul> -->
 
            <nav class="menu-navigation-icons">
-              <a href="#"  class="menu-magenta hvr-wobble-to-top-right"><i class="fa fa-tasks"></i><span>Projects</span></a>
-              <a href="#" class="menu-blue hvr-wobble-to-top-right"><i class="fa fa-history"></i><span>Experience</span></a>
-              <a href="#" class="menu-green hvr-wobble-to-top-right"><i class="fa fa-laptop"></i><span>Technologies</span></a>
-              <a href="#" class="menu-yellow hvr-wobble-to-top-right"><i class="fa fa-globe"></i><span>Travel</span></a>
-              <a href="#" class="menu-red hvr-wobble-to-top-right"><i class="fa fa-heart"></i><span>Likes</span></a>
+              <a  routerLink="/Projects" routerLinkActive="active"  class="menu-magenta hvr-wobble-to-top-right"><i class="fa fa-tasks"></i><span>Projects</span></a>
+              <a routerLink="/Experience" routerLinkActive="active"  class="menu-blue hvr-wobble-to-top-right"><i class="fa fa-history"></i><span>Experience</span></a>
+              <a  routerLink="/Technologies" routerLinkActive="active"    class="menu-green hvr-wobble-to-top-right"><i class="fa fa-laptop"></i><span>Technologies</span></a>
+              <a routerLink="/Travel" routerLinkActive="active"   class="menu-yellow hvr-wobble-to-top-right"><i class="fa fa-globe"></i><span>Travel</span></a>
+              <a routerLink="/LikesComponent" routerLinkActive="active" class="menu-red hvr-wobble-to-top-right"><i class="fa fa-heart"></i><span>Likes</span></a>
           </nav>
              <br>
              <br>
@@ -115,9 +115,10 @@
     <div class="row-fluid"><a class="nav-link" routerLink="/about" routerLinkActive="active"  >Home</a></div>
 
   </div> -->
-   <!-- <router-outlet></router-outlet> -->
+   <router-outlet></router-outlet>
     <!-- </div> -->
    </div>
+   
    <hr>
 
    <div>
@@ -201,4 +202,5 @@
               </div>
           </div>
       </section>
+      
    </div>
