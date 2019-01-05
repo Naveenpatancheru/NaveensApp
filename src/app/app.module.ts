@@ -10,6 +10,7 @@ import { LikesComponent } from './likes/likes.component';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 
+
 const appRoutes: Routes = [
   { path: 'Projects', component: ProjectsComponent },
   { path: 'Experience', component: ExperienceComponent },
