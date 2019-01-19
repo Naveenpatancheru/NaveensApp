@@ -9,6 +9,10 @@ import { TravelComponent } from './travel/travel.component';
 import { LikesComponent } from './likes/likes.component';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
+import { AskmeanythingComponent } from './askmeanything/askmeanything/askmeanything.component';
+import{ HttpClientModule} from '@angular/common/http';
+import { DataService } from './data.service';
+import { QuestionService } from './shared/question.service';
 
 
 const appRoutes: Routes = [
@@ -17,6 +21,7 @@ const appRoutes: Routes = [
   { path: 'Technologies', component: TechnologiesComponent},
   { path: 'Travel', component: TravelComponent },
   { path: 'LikesComponent', component: LikesComponent},
+  { path: 'Askmeanything', component: AskmeanythingComponent},
 ];
 @NgModule({
   declarations: [
@@ -25,19 +30,35 @@ const appRoutes: Routes = [
     ExperienceComponent,
     TechnologiesComponent,
     TravelComponent,
-    LikesComponent
+    LikesComponent,
+    AskmeanythingComponent
   ],
   imports: [
     BrowserModule,
+    
     RouterModule.forRoot(
       appRoutes,
       { enableTracing: true } // <-- debugging purposes only
     ), 
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    
   ],
-  providers: [],
+  providers: [
+
+    
+    // added new 
+    QuestionService,
+    { provide: 'BASE_URL', useFactory : getBaseUrl }
+
+  ],
   bootstrap: [AppComponent]
 })
 
 export class AppModule { }
+
+export function getBaseUrl()
+{
+  return document.getElementsByTagName('base')[0].href;
+}

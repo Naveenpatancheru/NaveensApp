@@ -1,0 +1,151 @@
+
+<!-- <table class="table" *ngIf="posts">
+  <thead>
+    <tr>
+    <th>Id</th>
+    <th>Question</th>
+    <th>Answer</th>
+    <th>FirstName</th>
+    <th>LastName</th>
+    <th>Email</th>
+    <th>PhoneNumber</th>
+    <th>More1</th>
+    <th>More2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let questionDetails of posts">
+     <td>{{ questionDetails.id}}</td>
+     <td>{{ questionDetails.question}}</td>
+     <td>{{ questionDetails.answer}}</td>
+     <td>{{ questionDetails.firstName}}</td>
+     <td>{{ questionDetails.lastName}}</td>
+     <td>{{ questionDetails.email}}</td>
+     <td>{{ questionDetails.phoneNumber}}</td>
+     <td>{{ questionDetails.more1}}</td>
+     <td>{{ questionDetails.more2}}</td>
+    </tr>
+  </tbody>
+
+</table> -->
+
+<div class="text-center" style="padding:10px 0" >
+    <!-- <div class="logo">Ask Me <i class="fa fa-question-circle"></i></div> -->
+    <div class="container contact-form  drop-shadow">
+        <div class="text-right" *ngIf="showQuestion">
+            <!-- <a href="#" class="btn btn-success">
+                <span class="glyphicon glyphicon-envelope"></span> Check Answer Here</a> -->
+                <button type="submit" (click)="toggle()" class="btn btn-success"><span class="glyphicon glyphicon-envelope"></span> &nbsp; Check Answer Here </button>
+            </div>
+            <div class="text-right" *ngIf="showAns">
+                    <!-- <a href="#" class="btn btn-success">
+                        <span class="glyphicon glyphicon-envelope"></span> Check Answer Here</a> -->
+                        <button type="submit" (click)="toggleAns()" class="btn btn-success"><span class="fa fa-question-circle"></span> &nbsp; Ask Question Here </button>
+                    </div>
+        <div class="contact-image">
+                
+            <img src="assets/Images/greenrocket.png" alt="rocket_contact"/>
+           
+        </div>
+        <form #form="ngForm" (submit)="onSubmit(form)">
+            
+            <h3> Drop Me a Question</h3> 
+           
+           <div class="row" id="divQuestion" *ngIf="showQuestion"> 
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <input  name="Id" #Id="ngModel" [(ngModel)]="service.formData.Id" class="form-control" >
+                    </div>
+                    <div class="form-group">
+                        <input  name="FirstName" placeholder="Full Name" #FirstName="ngModel" [(ngModel)]="service.formData.FirstName" class="form-control">
+                    </div>
+                    <div class="form-group">
+                            
+                        <input  name="Email"  placeholder="Email" #Email="ngModel" [(ngModel)]="service.formData.Email" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <input  name="phoneNumber" placeholder="PhoneNumber"  #PhoneNumber="ngModel" [(ngModel)]="service.formData.PhoneNumber" class="form-control">
+                    </div>
+                    <div class="form-group">
+                            <button type="submit" click="btnQuestion(form)" class="btn btn-success">Question <i class="fa fa-paper-plane-o"></i></button> 
+                        <!-- <button type="submit" class="btn btn-success">Question <i class="fa fa-paper-plane-o"></i></button> -->
+                        <!-- <input type="submit" name="btnSubmit" class="btn btn-success" value="Ask Question" /> -->
+                    </div>
+                   
+                </div>
+               
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <!-- <textarea name="txtMsg" class="form-control" placeholder="Your Message *" style="width: 100%; height: 170px;"></textarea> -->
+                        <textarea name="Question" style="width: 100%; height: 170px;" placeholder="Your Question "   #Question="ngModel" rows="3" [(ngModel)]="service.formData.Question" class="form-control" ></textarea>
+                    </div>
+                </div>
+
+            </div>
+            
+            <div class="row"  *ngIf="show">
+                <div class="col-md-8">
+                        <div class="alert alert-success fade in">
+                                <a href="#" class="close" data-dismiss="alert">&times;</a>
+                                <strong>{{msg1}}</strong> {{msg2}}
+                            </div>
+                  </div>
+                </div>
+
+
+
+                <div id="divAns" *ngIf="showAns"> 
+                        <div id="container_1">
+                               
+                                <!-- <blockquote >
+                                        <small class="text-success"><strong><cite></cite>Hello How are you ??</strong>
+                                        </small>
+                                       <br>
+                                </blockquote > -->
+                                <div class="col-md-2">
+                                        
+                                 </div>
+                                 <div class="col-md-8">
+                                     <div class="row">
+                                            <div class="col-md-6">
+                                                    <input  name="EnterID" #Id="ngModel" placeholder="EnterID" [(ngModel)]="service.formData.Id" class="form-control" >
+                                                </div>
+                                                <div class="col-md-6" style="text-align: left">
+                                                        <div class="form-group">
+                                                                <button type="submit" (click)="getAnswer(form)" class="btn btn-success">Get Answer <i class="fa fa-paper-plane-o"></i></button>
+                                                                <!-- <input type="submit" name="btnSubmit" class="btn btn-success" value="Ask Question" /> -->
+                                                            </div>
+                                                    </div>
+
+                                     </div>
+                                     <div class="row">
+                                            <textarea name="Question" style="width: 100%; height: 130px;" placeholder="Your Question "   #Question="ngModel" rows="3" [(ngModel)]="service.formData.Question" class="form-control" ></textarea>
+                                     </div>
+                                       
+                                 </div>
+                                 <div class="col-md-2">
+                                       
+                                 </div>
+                                 
+                </div>
+            </div>
+
+        </form>
+        
+    </div>
+   
+    
+  </div> 
+
+ 
+<!-- <div *ngFor="let post of posts">
+  <h3>{{ post.id}}</h3> 
+  <h3>{{ post.question}}</h3>
+  <h3>{{ post.question}}</h3>
+
+
+</div> -->
+
+
+
+        
