@@ -4,7 +4,9 @@ import { DataService} from '../../data.service';
 import { Observable} from 'rxjs';
 import { QuestionService } from 'src/app/shared/question.service';
 import { NgForm } from '@angular/forms';
-
+import {HttpClient} from '@angular/common/http'
+import { Question } from 'src/app/shared/question.model';
+import { httpFactory } from '@angular/http/src/http_module';
 
 @Component({
   selector: 'app-askmeanything',
@@ -13,12 +15,13 @@ import { NgForm } from '@angular/forms';
 })
 export class AskmeanythingComponent implements OnInit {
 public questionDetails: QuestionDetails[];
-posts:Object;
+posts:Object=null;
 msg1: string = null;
 msg2: string = null;
 show:boolean=false;
 showAns:boolean=false;
 showQuestion:boolean=true;
+question :Question;
 
 // This is working before adding the shared module things in shared ,app.module.ts
   // constructor(private data: DataService) {
@@ -30,7 +33,8 @@ showQuestion:boolean=true;
 
 
   // }
-  constructor (private service:QuestionService){
+  
+  constructor (private service:QuestionService,private http:HttpClient,private data: DataService){
 
   }
 
@@ -54,8 +58,8 @@ showQuestion:boolean=true;
     form.resetForm();
     this.service.formData = {
       Id: random,
-      Question : '',
-      Answer: '',
+      question : '',
+      answer: '',
       FirstName:'',
       LastName:'',
       Email:'',
@@ -71,14 +75,56 @@ showQuestion:boolean=true;
   toggle() {
    this.showAns=true;
    this.showQuestion=false;
+  this.service.formData.Id=null;
+  this.show=false;
+
   }
   toggleAns()
   {
+    let random = Math.floor(Math.random() * (999999 - 100000)) + 100000;
     this.showAns=false;
     this.showQuestion=true;
+    this.service.formData.Id=random;
+    this.question.question="";
+    this.question.answer="";
+    this.question.Id;
   }
   getAnswer(form:NgForm)
 {
+
+//form.controls.EnterID.value
+
+// this.h('https://naveensappqaapi.azurewebsites.net/'+'api/QuestionDetails').subscribe(result=>{
+//      //   this.questionDetails=result.json() as QuestionDetails[];
+//    },
+//  http.get('https://naveensappqaapi.azurewebsites.net/'+'api/QuestionDetails').subscribe(result=>{
+//       this.questionDetails=result.json() as QuestionDetails[];
+// },
+//   error =>console.error(error));
+ 
+// let obs=this.http.get('https://naveensappqaapi.azurewebsites.net/api/QuestionDetails/123456');
+// obs.subscribe(()=>console.log("Git the resukt"));
+// this.data.getPosts(form.controls.EnterID.value).subscribe(
+//       data => this.posts=data
+//   );
+
+
+this.service.getAnswer(form.controls.EnterID.value).subscribe(
+  
+ results=>{
+this.question=results as Question;
+console.log("RESULTS",results);
+console.log("RESULTS2",this.question);
+ }
+);
+
+ //.service.getAnswer(form.controls.EnterID.value);
+
+ this.data.getPosts().subscribe(
+      data => this.posts=data
+    );
+// this.service.list;
+
 debugger;
 }
   

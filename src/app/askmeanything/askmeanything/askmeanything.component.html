@@ -1,34 +1,6 @@
 
-<!-- <table class="table" *ngIf="posts">
-  <thead>
-    <tr>
-    <th>Id</th>
-    <th>Question</th>
-    <th>Answer</th>
-    <th>FirstName</th>
-    <th>LastName</th>
-    <th>Email</th>
-    <th>PhoneNumber</th>
-    <th>More1</th>
-    <th>More2</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let questionDetails of posts">
-     <td>{{ questionDetails.id}}</td>
-     <td>{{ questionDetails.question}}</td>
-     <td>{{ questionDetails.answer}}</td>
-     <td>{{ questionDetails.firstName}}</td>
-     <td>{{ questionDetails.lastName}}</td>
-     <td>{{ questionDetails.email}}</td>
-     <td>{{ questionDetails.phoneNumber}}</td>
-     <td>{{ questionDetails.more1}}</td>
-     <td>{{ questionDetails.more2}}</td>
-    </tr>
-  </tbody>
 
-</table> -->
-
+ 
 <div class="text-center" style="padding:10px 0" >
     <!-- <div class="logo">Ask Me <i class="fa fa-question-circle"></i></div> -->
     <div class="container contact-form  drop-shadow">
@@ -49,8 +21,14 @@
         </div>
         <form #form="ngForm" (submit)="onSubmit(form)">
             
-            <h3> Drop Me a Question</h3> 
+            <h3 id="lblQuestion" *ngIf="showQuestion"> Drop Me a Question</h3> 
+            <h3 id="lblAnswer" *ngIf="showAns"> Check the Answer</h3> 
            
+            <blockquote style="font: size 4px;" class="alert alert-warning fade in" role="alert">
+                   
+                           <p style="font: size 3px;font-family:Comic Sans MS;">Question : &nbsp;&nbsp;</p> <p style="font: size 8px;font-family:Verdana, Geneva, Tahoma, sans-serif;"  > Please remember the Id if you are asking annonymously </p>
+                        
+                         </blockquote>
            <div class="row" id="divQuestion" *ngIf="showQuestion"> 
                 <div class="col-md-6">
                     <div class="form-group">
@@ -59,6 +37,9 @@
                     <div class="form-group">
                         <input  name="FirstName" placeholder="Full Name" #FirstName="ngModel" [(ngModel)]="service.formData.FirstName" class="form-control">
                     </div>
+                    <div class="form-group">
+                            <input  name="answer" placeholder="Answer" #FirstName="ngModel" [(ngModel)]="service.formData.answer" class="form-control">
+                        </div>
                     <div class="form-group">
                             
                         <input  name="Email"  placeholder="Email" #Email="ngModel" [(ngModel)]="service.formData.Email" class="form-control">
@@ -77,7 +58,7 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <!-- <textarea name="txtMsg" class="form-control" placeholder="Your Message *" style="width: 100%; height: 170px;"></textarea> -->
-                        <textarea name="Question" style="width: 100%; height: 170px;" placeholder="Your Question "   #Question="ngModel" rows="3" [(ngModel)]="service.formData.Question" class="form-control" ></textarea>
+                        <textarea name="Question" style="width: 100%; height: 170px;" placeholder="Your Question "   #Question="ngModel" rows="3" [(ngModel)]="service.formData.question" class="form-control" ></textarea>
                     </div>
                 </div>
 
@@ -118,11 +99,42 @@
                                                     </div>
 
                                      </div>
-                                     <div class="row">
-                                            <textarea name="Question" style="width: 100%; height: 130px;" placeholder="Your Question "   #Question="ngModel" rows="3" [(ngModel)]="service.formData.Question" class="form-control" ></textarea>
-                                     </div>
+                                     <!-- <div class="row">
+                                             <textarea name="Answer" style="width: 100%; height: 130px;" placeholder="Your Question"    #Answer="ngModel" rows="3" [ngModel]="question?.answer" class="form-control" > </textarea> 
+                                        
+                                                  
+
+
+                                        </div> -->
                                        
-                                 </div>
+                                 </div><br>
+                                 <br>
+                                 <div *ngIf="question.answer">
+
+                               
+                                 <blockquote style="font: size 7px;" class="alert alert-warning fade in" role="alert">
+                                 <!-- <blockquote style="font: size 8px;" class="alert alert-success fade in"> -->
+                                        <p style="font: size 8px;font-family:Comic Sans MS;">Question : &nbsp;&nbsp;</p> <p style="font: size 8px;font-family:Verdana, Geneva, Tahoma, sans-serif;"  > {{question?.question}} </p>
+                                     
+                                      </blockquote>
+                                
+                                      <br>
+                                  
+                                     
+                                            <blockquote style="font: size 8px;" class="alert alert-success fade in">
+                                                  
+                                                   <p style="font: size 8px;font-family:Comic Sans MS;">Answer : &nbsp;&nbsp;</p>
+                                                   <p class="quotation-mark">
+                                                        “
+                                                      </p> <p style="font: size 8px;font-family:Verdana, Geneva, Tahoma, sans-serif;"  > {{question?.answer}} </p>
+                                                   <p class="blog-post-bottom pull-right" style="font: size 5px;font-family:Comic Sans MS;">
+                                                        <span class="badge quote-badge" ></span> --Naveen Patancheru ❤
+                                                      </p>
+                                                      <br>
+                                                      <p >&nbsp;&nbsp;</p>
+                                                 </blockquote>
+                                                </div>
+                                     
                                  <div class="col-md-2">
                                        
                                  </div>
