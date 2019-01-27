@@ -1,7 +1,7 @@
 export class Question {
     Id?: number;
     question : string;
-   // Answer: string;
+   // answer: string;
     FirstName:string;
     LastName:string;
     Email:string;

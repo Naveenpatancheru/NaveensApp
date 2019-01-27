@@ -22,6 +22,8 @@ show:boolean=false;
 showAns:boolean=false;
 showQuestion:boolean=true;
 question :Question;
+isCheckedAnony: boolean=true;
+
 
 // This is working before adding the shared module things in shared ,app.module.ts
   // constructor(private data: DataService) {
@@ -48,6 +50,7 @@ question :Question;
 
   ngOnInit() {
     this.resetForm();
+    this.isCheckedAnony=true;
     //this.service.formData['Id'].('valueE');
    
   }
@@ -70,7 +73,22 @@ question :Question;
 
     }
   }
+  toggleAnonymous()
+  {
+    debugger;
+  }
+  checkAnony(){
+    debugger;
+    if(this.isCheckedAnony==false)
+    {
+  this.isCheckedAnony=true;
+    }
+    else
+    {
+      this.isCheckedAnony=false;
 
+    }
+ }
 
   toggle() {
    this.showAns=true;
@@ -110,8 +128,9 @@ question :Question;
 
 
 this.service.getAnswer(form.controls.EnterID.value).subscribe(
-  
+ 
  results=>{
+  debugger;
 this.question=results as Question;
 console.log("RESULTS",results);
 console.log("RESULTS2",this.question);
@@ -120,9 +139,9 @@ console.log("RESULTS2",this.question);
 
  //.service.getAnswer(form.controls.EnterID.value);
 
- this.data.getPosts().subscribe(
-      data => this.posts=data
-    );
+//  this.data.getPosts().subscribe(
+//       data => this.posts=data
+//     );
 // this.service.list;
 
 debugger;
@@ -141,6 +160,7 @@ this.insertRecord(form);
 }
 insertRecord(form: NgForm)
 {
+  debugger;
 this.service.postQuestion(form.value).subscribe(res =>
   {
     this.show=true;

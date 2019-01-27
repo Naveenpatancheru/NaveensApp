@@ -23,28 +23,40 @@
             
             <h3 id="lblQuestion" *ngIf="showQuestion"> Drop Me a Question</h3> 
             <h3 id="lblAnswer" *ngIf="showAns"> Check the Answer</h3> 
-           
-            <blockquote style="font: size 4px;" class="alert alert-warning fade in" role="alert">
+            
+            <blockquote style="font: size 4px;" class="w-25 p-3 alert alert-warning fade in" role="alert" *ngIf="showQuestion">
                    
-                           <p style="font: size 3px;font-family:Comic Sans MS;">Question : &nbsp;&nbsp;</p> <p style="font: size 8px;font-family:Verdana, Geneva, Tahoma, sans-serif;"  > Please remember the Id if you are asking annonymously </p>
+                           <p style="font: size 3px;font-family:Comic Sans MS;line-height: 1px;">Question : &nbsp;&nbsp;</p> <p style="font: size 8px;font-family:Verdana, Geneva, Tahoma, sans-serif;"  > Please remember the Id if you are asking anonymously </p>
                         
-                         </blockquote>
+                         </blockquote> 
+
+
+           
            <div class="row" id="divQuestion" *ngIf="showQuestion"> 
                 <div class="col-md-6">
                     <div class="form-group">
                         <input  name="Id" #Id="ngModel" [(ngModel)]="service.formData.Id" class="form-control" >
                     </div>
                     <div class="form-group">
+                        <div class="mylabel">
+                       <input type="checkbox"  (change)="checkAnony()" id="chkAnony">
+                       <div class="slidinggroove"></div>
+                       <label class="mylabel" for="chkAnony" name="Anonymously">
+                           <p class="labelterm">Anonymously</p>
+                       </label>
+                    </div>
+                    </div>
+                    <div class="form-group" *ngIf="isCheckedAnony" >
                         <input  name="FirstName" placeholder="Full Name" #FirstName="ngModel" [(ngModel)]="service.formData.FirstName" class="form-control">
                     </div>
-                    <div class="form-group">
+                    <div class="form-group" style="display:none" >
                             <input  name="answer" placeholder="Answer" #FirstName="ngModel" [(ngModel)]="service.formData.answer" class="form-control">
                         </div>
-                    <div class="form-group">
+                    <div class="form-group" *ngIf="isCheckedAnony">
                             
                         <input  name="Email"  placeholder="Email" #Email="ngModel" [(ngModel)]="service.formData.Email" class="form-control">
                     </div>
-                    <div class="form-group">
+                    <div class="form-group" *ngIf="isCheckedAnony">
                         <input  name="phoneNumber" placeholder="PhoneNumber"  #PhoneNumber="ngModel" [(ngModel)]="service.formData.PhoneNumber" class="form-control">
                     </div>
                     <div class="form-group">

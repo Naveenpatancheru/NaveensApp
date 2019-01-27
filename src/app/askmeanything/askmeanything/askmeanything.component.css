@@ -117,6 +117,7 @@ p{
 
     /* other styles goes here... */
     display: inline-block;
+    line-height: 1.4em;
     /* vertical-align: top; */
 
 }
@@ -150,3 +151,52 @@ blockquote::after{
   content: "";
 }
 
+.mylabel{
+  position: relative;
+  display: block;
+  width: 60px;
+  height: 30px;
+  margin-bottom: 15px;
+}
+
+.slidinggroove{
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: #ababab;
+  border-radius: 20px;
+  transition: all 0.4s ease;
+}
+.mylabel input{
+  display: none;
+}
+
+.slidinggroove::after
+{
+  position: absolute;
+  content: "";
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #fff;
+  top: 1px;
+  left: 1px;
+  transition: all 0.4s ease;
+}
+input:checked + .slidinggroove{
+  background: #5fcf80;
+}
+
+input:checked + .slidinggroove::after{
+  transform: translateX(30px);
+}
+.labelterm{
+  position: relative;
+  margin-left: 65px;
+  font-size: 13x;
+  color: #222;
+  top: 5px;
+  font-family:"Comic Sans MS", cursive, sans-serif; 
+}
