@@ -24,34 +24,15 @@ showQuestion:boolean=true;
 question :Question;
 isCheckedAnony: boolean=true;
 
-
-// This is working before adding the shared module things in shared ,app.module.ts
-  // constructor(private data: DataService) {
-    
-  //   // http.get('https://naveensappqaapi.azurewebsites.net/'+'api/QuestionDetails').subscribe(result=>{
-  //   //   this.questionDetails=result.json() as QuestionDetails[];
-  //   // },
-  //   // error =>console.error(error));
-
-
-  // }
-  
   constructor (private service:QuestionService,private http:HttpClient,private data: DataService){
 
   }
 
-  // Commented this as error and we dont get data as we did this
-  // ngOnInit() {
-  //   this.data.getPosts().subscribe(
-  //     data => this.posts=data
-  //   );
-    
-  // }
 
   ngOnInit() {
     this.resetForm();
     this.isCheckedAnony=true;
-    //this.service.formData['Id'].('valueE');
+
    
   }
   resetForm(form? : NgForm)
@@ -110,22 +91,6 @@ isCheckedAnony: boolean=true;
   getAnswer(form:NgForm)
 {
 
-//form.controls.EnterID.value
-
-// this.h('https://naveensappqaapi.azurewebsites.net/'+'api/QuestionDetails').subscribe(result=>{
-//      //   this.questionDetails=result.json() as QuestionDetails[];
-//    },
-//  http.get('https://naveensappqaapi.azurewebsites.net/'+'api/QuestionDetails').subscribe(result=>{
-//       this.questionDetails=result.json() as QuestionDetails[];
-// },
-//   error =>console.error(error));
- 
-// let obs=this.http.get('https://naveensappqaapi.azurewebsites.net/api/QuestionDetails/123456');
-// obs.subscribe(()=>console.log("Git the resukt"));
-// this.data.getPosts(form.controls.EnterID.value).subscribe(
-//       data => this.posts=data
-//   );
-
 
 this.service.getAnswer(form.controls.EnterID.value).subscribe(
  
@@ -137,30 +102,22 @@ console.log("RESULTS2",this.question);
  }
 );
 
- //.service.getAnswer(form.controls.EnterID.value);
-
-//  this.data.getPosts().subscribe(
-//       data => this.posts=data
-//     );
-// this.service.list;
-
-debugger;
 }
   
 
 btnQuestion(form: NgForm)
 {
-  debugger;
+ 
 
 }
 
 onSubmit(form: NgForm){
-  debugger;
+
 this.insertRecord(form);
 }
 insertRecord(form: NgForm)
 {
-  debugger;
+
 this.service.postQuestion(form.value).subscribe(res =>
   {
     this.show=true;

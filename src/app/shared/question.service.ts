@@ -6,10 +6,6 @@ import { Observable ,throwError} from 'rxjs';
 import { Http, RequestOptions, Headers, Response } from '@angular/http';
 import { map, catchError } from 'rxjs/operators';
 
-// const headers = new Headers({ 'Content-Type': 'application/json' });
-// headers.append('Accept', 'text/html');
-// const options = new RequestOptions({ headers: headers });
-
 const httpOptions ={
 headers: new HttpHeaders(
   {
@@ -43,44 +39,13 @@ export class QuestionService {
       headers: new Headers({ 'Content-Type': 'application/json' })
     })
 
-     
-  //   // http.get('https://naveensappqaapi.azurewebsites.net/'+'api/QuestionDetails').subscribe(result=>{
-  //   //   this.questionDetails=result.json() as QuestionDetails[];
-  //   // },
-  //   // error =>console.error(error));
-  debugger;
    var urllocal=this.rootURL+'/'+QId;
    return this.http.get(urllocal,httpOptions) as Observable<Question>;
 
-  //  getCounsellingTypes(): Observable<string[]> {
-  //   let url = this.baseUrl + 'counselingTypes';
-  //   return this.http.get(url, options).pipe(map((r) => r.json()), catchError(this.handleError));
-
-    // this.http.get('https://naveensappqaapi.azurewebsites.net/api/QuestionDetails/'+QId)
-    //  .toPromise().then(res => this.list= res as Question[]);
-    // debugger;
-    // this.http.get(this.rootURL)
-    // .subscribe(
-     
-    //   data => console.log(data),
-    //   err => console.log(err),
-    //   () => console.log('Task Complete')
-    //   );
-   //   debugger;
-    //.toPromise().then(res => this.list =res as Question[]);
-
-
-  //   debugger;
-  //  this.http.get('https://naveensappqaapi.azurewebsites.net/'+'api/QuestionDetails').subscribe(result=>{
-  //   this.QuestionId=result.json() as QuestionId;
-  // this.http.get('https://naveensappqaapi.azurewebsites.net/api/QuestionDetails'+QId).subscribe(result=>{
-  //      this.QuestionId.Answer=result.json() as this.QuestionId;
-  //   },
-  //    error =>console.error(error));
 
   }
   private handleError(error: Response | any) {
-    debugger;
+   
     // In a real world app, you might use a remote logging infrastructure
     let errMsg: string;
     if (error instanceof Response) {

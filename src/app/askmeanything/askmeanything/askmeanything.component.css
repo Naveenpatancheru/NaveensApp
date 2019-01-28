@@ -196,7 +196,8 @@ input:checked + .slidinggroove::after{
   position: relative;
   margin-left: 65px;
   font-size: 13x;
-  color: #222;
+  color:green;
   top: 5px;
   font-family:"Comic Sans MS", cursive, sans-serif; 
+  font-display: bold;
 }
