@@ -56,10 +56,10 @@ isCheckedAnony: boolean=true;
   }
   toggleAnonymous()
   {
-    debugger;
+
   }
   checkAnony(){
-    debugger;
+   
     if(this.isCheckedAnony==false)
     {
   this.isCheckedAnony=true;
