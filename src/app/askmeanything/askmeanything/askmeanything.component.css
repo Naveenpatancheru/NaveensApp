@@ -3,6 +3,13 @@
   body{
   background: -webkit-linear-gradient(left, #5cb85c, #00c6ff);
 }
+
+h3
+{
+  font-family:'Montserrat', sans-serif !important;
+  color: #8C43FF ;
+  background-color:  #8C43FF ;
+}
 .contact-form{
   background: #fff;
   margin-top: 7%;
@@ -73,9 +80,39 @@
 
 
 h1, h2, h3, h4 {
-  font-family: "Comic Sans MS", cursive, sans-serif;
+  font-family:'Montserrat', sans-serif !important;
+}
+h3
+{
+  font-family:'Montserrat', sans-serif !important;
+
+}
+input::placeholder {
+  font-family:'Montserrat', sans-serif;
+}
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  font-family:'Montserrat', sans-serif;
+  opacity: 1; /* Firefox */
 }
 
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  font-family:'Montserrat', sans-serif !important;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  font-family:'Montserrat', sans-serif !important;
+}
+:-ms-input-placeholder { /* IE 10+ */
+  font-family:'Montserrat', sans-serif !important;
+}
+:-moz-placeholder { /* Firefox 18- */
+  font-family:'Montserrat', sans-serif !important;
+}
+
+
+.fontFamily
+{
+  font-family:'Montserrat', sans-serif;
+}
 button {
   font-family : "Comic Sans MS", cursive, sans-serif;
   font-size: 1em;
@@ -84,7 +121,9 @@ a
 {
   font-family : "Comic Sans MS", cursive, sans-serif;
 }
-
+p{
+  font-family:'Montserrat', sans-serif !important;
+}
 .form-control::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
   font-family: "Comic Sans MS", cursive, sans-serif;
   opacity: 1; /* Firefox */

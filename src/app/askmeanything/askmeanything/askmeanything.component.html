@@ -6,11 +6,11 @@
     <div class="container ">
         <div class="text-right" *ngIf="showQuestion">
         
-                <button type="submit" (click)="toggle()" class="btn btn-success"><span class="glyphicon glyphicon-envelope"></span> &nbsp; Check Answer Here </button>
+                <button type="submit" (click)="toggle()" class="btn btn-success fontFamily"><span class="glyphicon glyphicon-envelope"></span> &nbsp; Check Answer Here </button>
             </div>
             <div class="text-right" *ngIf="showAns">
                   
-                        <button type="submit" (click)="toggleAns()" class="btn btn-success"><span class="fa fa-question-circle"></span> &nbsp; Ask Question Here </button>
+                        <button type="submit" (click)="toggleAns()" class="btn btn-success fontFamily"><span class="fa fa-question-circle"></span> &nbsp; Ask Question Here </button>
                     </div>
         <!-- <div class="contact-image">
                 
@@ -19,14 +19,15 @@
         </div> -->
         <form #form="ngForm" (submit)="onSubmit(form)">
             
-            <h3 id="lblQuestion" *ngIf="showQuestion"> Drop Me a Question</h3> 
-            <h3 id="lblAnswer" *ngIf="showAns"> Check the Answer</h3> 
-            
-            <blockquote style="font: size 4px;" class="w-25 p-3 alert alert-warning fade in" role="alert" *ngIf="showQuestion">
+            <!-- <h3 id="lblQuestion" *ngIf="showQuestion"> Drop Me a Question</h3> 
+            <h3 id="lblAnswer" *ngIf="showAns"> Check the Answer</h3>  -->
+            <h3 id="lblQuestion" *ngIf="showQuestion"> </h3> 
+            <h3 id="lblAnswer" *ngIf="showAns"> </h3>
+            <div style="font: size 4px;" class="w-25 p-3 alert alert-warning fade in" role="alert" *ngIf="showQuestion">
                    
                            <p style="font: size 3px;font-family:Comic Sans MS;line-height: 1px;">Question : &nbsp;&nbsp;</p> <p style="font: size 8px;font-family:Verdana, Geneva, Tahoma, sans-serif;"  > Please remember the Id if you are asking anonymously </p>
                         
-                         </blockquote> 
+            </div> 
 
 
            
@@ -41,29 +42,29 @@
                        <div class="slidinggroove"></div>
                        <label class="mylabel" for="chkAnony" name="Anonymously">
                             
-                            <p class="labelterm" *ngIf="isCheckedAnony"> Anonymously <i class="fa fa-eye"></i></p> 
-                            <p class="labelterm" *ngIf="!isCheckedAnony"> Anonymously<i class="fa fa-eye-slash"> </i></p> 
+                            <p class="labelterm fontFamily" *ngIf="isCheckedAnony"> Anonymously <i class="fa fa-eye"></i></p> 
+                            <p class="labelterm fontFamily" *ngIf="!isCheckedAnony"> Anonymously<i class="fa fa-eye-slash"> </i></p> 
                        </label>
                     </div>
                     </div>
                     <div class="form-group" *ngIf="isCheckedAnony" >
-                        <input  name="FirstName" placeholder="Full Name" #FirstName="ngModel" [(ngModel)]="service.formData.FirstName" class="form-control">
+                        <input  name="FirstName" placeholder="Full Name" #FirstName="ngModel" [(ngModel)]="service.formData.FirstName" class="form-control fontFamily">
                     </div>
                     <div class="form-group" style="display:none" >
-                            <input  name="answer" placeholder="Answer" #FirstName="ngModel" [(ngModel)]="service.formData.answer" class="form-control">
+                            <input  name="answer" placeholder="Answer" #FirstName="ngModel" [(ngModel)]="service.formData.answer" class="form-control fontFamily">
                         </div>
                     <div class="form-group" *ngIf="isCheckedAnony">
                             
-                        <input  name="Email"  placeholder="Email" #Email="ngModel" [(ngModel)]="service.formData.Email" class="form-control">
+                        <input  name="Email"  placeholder="Email" #Email="ngModel" [(ngModel)]="service.formData.Email" class="form-control fontFamily">
                     </div>
                     <div class="form-group" *ngIf="isCheckedAnony">
-                        <input  name="phoneNumber" placeholder="PhoneNumber"  #PhoneNumber="ngModel" [(ngModel)]="service.formData.PhoneNumber" class="form-control">
+                        <input  name="phoneNumber" placeholder="PhoneNumber"  #PhoneNumber="ngModel" [(ngModel)]="service.formData.PhoneNumber" class="form-control fontFamily">
                     </div>
                     <div class="form-group hidden-lg hidden-md hidden-sm" >
-                        <textarea name="Question" style="width: 100%; height: 170px;" placeholder="Your Question"   #Question="ngModel" rows="3" [(ngModel)]="service.formData.question" class="form-control" ></textarea>
+                        <textarea name="Question" style="width: 100%; height: 170px;" placeholder="Your Question"   #Question="ngModel" rows="3" [(ngModel)]="service.formData.question" class="form-control fontFamily" ></textarea>
                     </div>
                     <div class="form-group">
-                            <button type="submit" click="btnQuestion(form)" class="btn btn-success">Question <i class="fa fa-paper-plane-o"></i></button> 
+                            <button type="submit" click="btnQuestion(form)" class="btn btn-success fontFamily">Question <i class="fa fa-paper-plane-o"></i></button> 
                       
                     </div>
                    
@@ -102,7 +103,7 @@
                                                 </div>
                                                 <div class="col-md-6" style="text-align: left">
                                                         <div class="form-group">
-                                                                <button type="submit" (click)="getAnswer(form)" class="btn btn-success">Get Answer <i class="fa fa-paper-plane-o"></i></button>
+                                                                <button type="submit" (click)="getAnswer(form)" class="btn btn-success fontFamily">Get Answer <i class="fa fa-paper-plane-o"></i></button>
                                                                 <!-- <input type="submit" name="btnSubmit" class="btn btn-success" value="Ask Question" /> -->
                                                             </div>
                                                     </div>

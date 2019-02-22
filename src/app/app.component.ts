@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import ScrollReveal from 'scrollreveal'
 import { Scroll } from '@angular/router';
+import * as $ from 'jquery'
 
 @Component({
   selector: 'app-root',
@@ -10,6 +11,7 @@ import { Scroll } from '@angular/router';
 export class AppComponent {
   title = 'NaveensApp';
   counter: number=22;
+  
   
   ngOnInit() {
 
@@ -81,6 +83,23 @@ ScrollReveal().reveal('.row text-center',{
   duration: 2000,
   origin:'top',
   distance:'300px'
+});
+
+
+$(function() {
+  // Smooth Scrolling
+  $('a[href*="#"]:not([href="#"])').click(function() {
+    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+      var target = $(this.hash);
+      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+      if (target.length) {
+        $('html, body').animate({
+          scrollTop: target.offset().top
+        }, 1000);
+        return false;
+      }
+    }
+  });
 });
 
 
