@@ -16,21 +16,21 @@ export class AppComponent {
   ngOnInit() {
 
     ScrollReveal().reveal('.navbar',{
-      duration: 2000,
+      duration: 1500,
       origin:'buttom'
   });
   ScrollReveal().reveal('.showcase-left',{
-    duration: 2000,
+    duration: 1500,
     origin:'top',
     distance:'300px'
 });
 ScrollReveal().reveal('.showcase-right',{
-  duration: 2000,
+  duration: 1500,
   origin:'right',
   distance:'300px'
 });
 ScrollReveal().reveal('.showcase-btn',{
-  duration: 3000,
+  duration: 1500,
   delay:3000,
   origin:'buttom'
 });
@@ -39,13 +39,13 @@ ScrollReveal().reveal('#testimonial div', {
   origin:'bottom'
 });
 ScrollReveal().reveal('.info-left', {
-  duration: 2000,
+  duration: 1300,
   origin:'left',
   distance:'300px',
   viewFactor: 0.2
 });
 ScrollReveal().reveal('.info-right', {
-  duration: 2000,
+  duration: 1300,
   origin:'right',
   distance:'300px',
   viewFactor: 0.2
@@ -56,7 +56,7 @@ ScrollReveal().reveal('.paragraph2', {
   origin:'buttom'
 });
 ScrollReveal().reveal('.item', {
-  duration: 2000,
+  duration: 1300,
   origin:'right',
   distance:'300px',
   viewFactor: 0.2
@@ -67,16 +67,23 @@ ScrollReveal().reveal('.contact', {
   distance:'300px',
   viewFactor: 0.2
 });
+
+ScrollReveal().reveal('.menuBar', {
+  duration: 1000,
+  origin:'left',
+  distance:'300px',
+  viewFactor: 0.1
+});
 ScrollReveal().reveal('.footer-distributed', {
   // duration: 2000,
   // delay:2000,
   // duration: 2000,
   // origin:'buttom',
   // viewFactor: 0.2
-  duration: 2000,
+  duration: 1000,
   origin:'down',
   distance:'300px',
-  viewFactor: 0.2
+  viewFactor: 0.1
 });
 
 ScrollReveal().reveal('.row text-center',{
@@ -84,6 +91,13 @@ ScrollReveal().reveal('.row text-center',{
   origin:'top',
   distance:'300px'
 });
+
+ScrollReveal().reveal('.eduWrk',{
+  duration: 1000,
+  origin:'left',
+  distance:'300px'
+});
+
 
 
 $(function() {
