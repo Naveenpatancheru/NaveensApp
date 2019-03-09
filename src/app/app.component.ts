@@ -97,6 +97,11 @@ ScrollReveal().reveal('.eduWrk',{
   origin:'left',
   distance:'300px'
 });
+ScrollReveal().reveal('.timeline-centered',{
+  duration: 1000,
+  origin:'left',
+  distance:'300px'
+});
 
 
 

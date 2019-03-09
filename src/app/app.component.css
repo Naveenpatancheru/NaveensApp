@@ -10,7 +10,30 @@ body{
   
  
 }
+.signFont
+{
+  /* font-family: 'Caveat', cursive; */
+  /* font-family: 'Bilbo', cursive;  */
+  /* font-family: 'Shadows Into Light', cursive; */
+  font-family: 'Allura', cursive;
+  font-size: 35px;
+  font-weight: 200;
+  
+}
 
+.sideHeadings{
+  /* font-family: 'Caveat', cursive;  */
+   /* font-family: 'Shadows Into Light', cursive; */
+   /* font-family: 'Bad Script', cursive; */
+   /* font-family: 'Bilbo', cursive;   */
+  font-size: 30px;
+  /* font-weight: 500; */
+  /* font-family: 'Markazi Text', serif; */
+  /* font-family: 'Concert One', cursive; */
+  /* font-family: 'Saira Extra Condensed', sans-serif; */
+  /* font-family: 'El Messiri', sans-serif; */
+  font-family: 'Exo 2', sans-serif;
+}
  .toggle
 {
   width: 100%;
@@ -187,6 +210,7 @@ a
   /* font-family: 'Play', sans-serif; */
   /* font-family: 'Courgette', cursive; */
   font-family: 'Exo 2', sans-serif;
+  font-size: 16px;
 }
 .mainFont
 {
@@ -291,8 +315,10 @@ li a {
 }
 #social-fb:hover {
   color: #3B5998;
+
   
 }
+
 #social-fb {
   color: #3B5998;
   
